@@ -4,6 +4,8 @@
 #include "ChipConfig.h"
 #include "IO.h"
 #include "timer.h"
+#include "PWM.h"
+
 
 int main (void){
 /***************************************************************************************************/
@@ -15,6 +17,7 @@ InitOscillator();
 // Configuration des entrées sorties
 /****************************************************************************************************/
 InitIO();
+InitPWM();
 
 LED_BLANCHE = 1;
 LED_BLEUE = 1;
@@ -26,5 +29,6 @@ InitTimer1();
 // Boucle Principale
 /****************************************************************************************************/
 while(1){
+ PWMSetSpeed(0);
 } // fin main
 }
