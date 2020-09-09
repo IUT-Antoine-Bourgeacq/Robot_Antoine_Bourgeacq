@@ -48,10 +48,13 @@ void InitIO()
 
     // Moteurs 
     
-    _TRISB14 = 0 ; // Sortie du moteur
+    _TRISB14 = 0 ; // Sortie du moteur D
             
-    _TRISB15 = 0 ; // Sortie du moteur
+    _TRISB15 = 0 ; // Sortie du moteur D
     
+    _TRISC6 = 0 ; // Sortie du moteur G
+    
+    _TRISC7 = 0 ; // Sortie du moteur G
     //********** Configuration des entrées : _TRISxx = 1 ********************************   
 
     

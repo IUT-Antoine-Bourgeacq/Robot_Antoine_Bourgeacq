@@ -10,7 +10,8 @@
 
 
 
+
 void InitPWM(void);
-void PWMSetSpeed(float vitesseEnPourcents);
+void PWMSetSpeed(float vitesseEnPourcents, unsigned char MoteurLR);
 
 #endif
