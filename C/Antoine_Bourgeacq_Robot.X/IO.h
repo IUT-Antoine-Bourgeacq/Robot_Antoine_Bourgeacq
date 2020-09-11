@@ -30,9 +30,9 @@
 //Configuration spécifique du moteur droit
 #define MOTEUR_DROIT_INH MOTEUR6_IN1
 #define MOTEUR_DROIT_INL MOTEUR6_IN2
-#define MOTEUR_DROIT_ENL IOCON1bits.PENL
-#define MOTEUR_DROIT_ENH IOCON1bits.PENH
-#define MOTEUR_DROIT_DUTY_CYCLE PDC1
+#define MOTEUR_DROIT_ENL IOCON6bits.PENL
+#define MOTEUR_DROIT_ENH IOCON6bits.PENH
+#define MOTEUR_DROIT_DUTY_CYCLE PDC6
 
 // Prototypes fonctions
 void InitIO();
