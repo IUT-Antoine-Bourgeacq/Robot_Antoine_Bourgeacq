@@ -2,14 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/timer.h</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/main.c</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/ChipConfig.c</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/IO.h</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/IO.c</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/timer.c</file>
-            <file>file:/C:/Users/TABLE%206/Desktop/Projet_Antoine_Bourgeacq/02092020_Robot_Antoine_Bourgeacq/Antoine_Bourgeacq_Robot.X/ChipConfig.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/Robot.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/Toolbox.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/nbproject/Makefile-default.mk</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/IO.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/Toolbox.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/PWM.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/PWM.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/main.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/ChipConfig.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/timer.h</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/timer.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/IO.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/Robot.c</file>
+            <file>file:/C:/Users/toino/OneDrive/Documents/GitHub/Robot_Antoine_Bourgeacq/C/Antoine_Bourgeacq_Robot.X/nbproject/Makefile-impl.mk</file>
         </group>
+>>>>>>> 929f9facd8c225367c11a290c7843623aeb90033
     </open-files>
 </project-private>
