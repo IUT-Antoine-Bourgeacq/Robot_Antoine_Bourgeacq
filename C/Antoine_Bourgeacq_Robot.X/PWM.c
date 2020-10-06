@@ -6,7 +6,6 @@
 #include "Toolbox.h"
 
 #define PWMPER 40.0
-<<<<<<< HEAD
 unsigned char acceleration = -70;
 
 void InitPWM(void)
@@ -28,28 +27,6 @@ FCLCON6 = 0x0003; //Désactive la gestion des faults
 
 /* Enable PWM Module */
 PTCONbits.PTEN = 1;
-=======
-unsigned char acceleration = 10;
-
-void InitPWM(void) {
-    PTCON2bits.PCLKDIV = 0b000; //Divide by 1
-    PTPER = 100 * PWMPER; //Période en pourcentage
-
-    //Réglage PWM moteur 1 sur hacheur 1
-    IOCON1bits.POLH = 1; //High = 1 and active on low =0
-    IOCON1bits.POLL = 1; //High = 1
-    IOCON1bits.PMOD = 0b01; //Set PWM Mode to Redundant
-    FCLCON1 = 0x0003; //Désactive la gestion des faults
-
-    //Reglage PWM moteur 2 sur hacheur 6
-    IOCON6bits.POLH = 1; //High = 1
-    IOCON6bits.POLL = 1; //High = 1
-    IOCON6bits.PMOD = 0b01; //Set PWM Mode to Redundant
-    FCLCON6 = 0x0003; //Désactive la gestion des faults
-
-    /* Enable PWM Module */
-    PTCONbits.PTEN = 1;
->>>>>>> 929f9facd8c225367c11a290c7843623aeb90033
 }
 
 /*void PWMSetSpeed(float vitesseEnPourcents, unsigned char MoteurLR)

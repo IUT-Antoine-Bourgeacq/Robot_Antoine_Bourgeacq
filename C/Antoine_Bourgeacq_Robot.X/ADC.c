@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <xc.h>
 #include "adc.h"
 #include "main.h"
@@ -98,6 +97,3 @@ void ADCClearConversionFinishedFlag(void)
 {
 ADCConversionFinishedFlag = 0;
 }
-=======
-
->>>>>>> 929f9facd8c225367c11a290c7843623aeb90033
