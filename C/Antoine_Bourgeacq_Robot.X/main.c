@@ -117,6 +117,16 @@ void OperatingSystemLoop(void) {
         case STATE_TOURNE_SUR_PLACE_DROITE_EN_COURS:
             SetNextRobotStateInAutomaticMode();
             break;
+            
+        case STATE_RECULE_PIVOT:
+            PWMSetSpeedConsigne(20, MOTEUR_DROIT);
+            PWMSetSpeedConsigne(10, MOTEUR_GAUCHE);//Inverse
+            stateRobot = STATE_TOURNE_SUR_PLACE_DROITE_EN_COURS;
+            break;
+        case STATE_RECULE_PIVOT_EN_COURS:
+            SetNextRobotStateInAutomaticMode();
+            break;
+         
 
         default:
             stateRobot = STATE_ATTENTE;
@@ -139,8 +149,19 @@ void SetNextRobotStateInAutomaticMode() {
             robotState.distanceTelemetreCentre > 20 &&
             robotState.distanceTelemetreGauche < 30) //Obstacle à gauche
         positionObstacle = OBSTACLE_A_GAUCHE;
-    else if (robotState.distanceTelemetreCentre < 20) //Obstacle en face
-        positionObstacle = OBSTACLE_EN_FACE;
+    else if (robotState.distanceTelemetreCentre < 20 &&
+             robotState.distanceTelemetreDroit > 30 &&
+            robotState.distanceTelemetreGauche > 30) 
+        positionObstacle = OBSTACLE_EN_FACE; //Obstacle en face
+    
+    else if (robotState.distanceTelemetreCentre < 20 && 
+            robotState.distanceTelemetreDroit < 20)
+        positionObstacle = OBSTACLE_EN_FACE_DROIT; //Obstacle en face et à droit 
+    
+    else if (robotState.distanceTelemetreCentre < 20 && 
+            robotState.distanceTelemetreGauche < 20)
+        positionObstacle = OBSTACLE_EN_FACE_GAUCHE; //Obstacle en face et à gauche
+    
     else if (robotState.distanceTelemetreDroit > 30 &&
             robotState.distanceTelemetreCentre > 20 &&
             robotState.distanceTelemetreGauche > 30) //pas d?obstacle
@@ -154,7 +175,11 @@ void SetNextRobotStateInAutomaticMode() {
     else if (positionObstacle == OBSTACLE_A_GAUCHE)
         nextStateRobot = STATE_TOURNE_DROITE;
     else if (positionObstacle == OBSTACLE_EN_FACE)
+        nextStateRobot = STATE_RECULE_PIVOT;
+    else if (positionObstacle == OBSTACLE_EN_FACE_DROIT)
         nextStateRobot = STATE_TOURNE_SUR_PLACE_GAUCHE;
+    else if (positionObstacle == OBSTACLE_EN_FACE_GAUCHE)
+        nextStateRobot = STATE_TOURNE_SUR_PLACE_DROITE;
 
     //Si l?on n?est pas dans la transition de l?étape en cours
     if (nextStateRobot != stateRobot-1)
