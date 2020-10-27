@@ -33,12 +33,22 @@ int main(void) {
         if (ADCIsConversionFinished() == 1) {
             ADCClearConversionFinishedFlag();
             unsigned int * result = ADCGetResult();
+            
             float volts = ((float) result[2])*3.3 / 4096 * 3.2;
-            robotState.distanceTelemetreDroit = 34 / volts - 5;
+            robotState.distanceTelemetreDroit = 34 / volts - 5; // DROIT
+            
             volts = ((float) result[1])*3.3 / 4096 * 3.2;
-            robotState.distanceTelemetreCentre = 34 / volts - 5;
-            volts = ((float) result[0])*3.3 / 4096 * 3.2;
+            robotState.distanceTelemetreCentre = 34 / volts - 5; // CENTRE
+            
+            volts = ((float) result[0])*3.3 / 4096 * 3.2; // GAUCHE
             robotState.distanceTelemetreGauche = 34 / volts - 5;
+            
+            volts = ((float) result[3])*3.3 / 4096 * 3.2; // EXTREME GAUCHE
+            robotState.distanceTelemetreXGauche = 34 / volts - 5;
+            
+            volts = ((float) result[4])*3.3 / 4096 * 3.2; // EXTREME DROITE
+            robotState.distanceTelemetreXDroit = 34 / volts - 5;
+
 
 
             if (robotState.distanceTelemetreDroit <= 25)
@@ -117,6 +127,7 @@ void OperatingSystemLoop(void) {
         case STATE_TOURNE_SUR_PLACE_DROITE_EN_COURS:
             SetNextRobotStateInAutomaticMode();
             break;
+            
         default:
             stateRobot = STATE_ATTENTE;
             break;
@@ -168,6 +179,20 @@ void SetNextRobotStateInAutomaticMode() {
             robotState.distanceTelemetreCentre < 20 &&
             robotState.distanceTelemetreGauche > 20) //Problème face 2
         positionObstacle = PROBLEME_FACE;
+     
+     else if (robotState.distanceTelemetreXDroit < 20 && 
+             robotState.distanceTelemetreDroit > 20 &&
+            robotState.distanceTelemetreCentre > 20 &&
+            robotState.distanceTelemetreGauche > 20 &&
+             robotState.distanceTelemetreXGauche > 20 ) //Obstacle Extreme DROIT
+         positionObstacle = OBSTACLE_X_DROIT;
+     
+     else if (robotState.distanceTelemetreXDroit > 20 && 
+             robotState.distanceTelemetreDroit > 20 &&
+            robotState.distanceTelemetreCentre > 20 &&
+            robotState.distanceTelemetreGauche > 20 &&
+             robotState.distanceTelemetreXGauche < 20 ) //Obstacle Extreme DROIT
+         positionObstacle = OBSTACLE_X_GAUCHE;
     
 
     //Détermination de l?état à venir du robot
@@ -185,6 +210,10 @@ void SetNextRobotStateInAutomaticMode() {
         nextStateRobot = STATE_TOURNE_SUR_PLACE_DROITE;
     else if (positionObstacle == PROBLEME_FACE)
         nextStateRobot = STATE_TOURNE_SUR_PLACE_GAUCHE;
+    else if (positionObstacle == OBSTACLE_X_DROIT)
+        nextStateRobot = STATE_TOURNE_SUR_PLACE_GAUCHE;
+    else if (positionObstacle == OBSTACLE_X_GAUCHE)
+        nextStateRobot = STATE_TOURNE_SUR_PLACE_DROITE;
     //Si l?on n?est pas dans la transition de l?étape en cours
     if (nextStateRobot != stateRobot-1)
         stateRobot = nextStateRobot; // Il y a un retour en arrière sur la dernière étape
