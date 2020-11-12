@@ -9,6 +9,7 @@
 #include "Toolbox.h"
 #include "Robot.h"
 #include "main.h"
+#include "UART.h"
 
 unsigned char stateRobot;
 
@@ -24,6 +25,7 @@ int main(void) {
     InitTimer4();
     InitOscillator();
     InitTimer23();
+    InitUART(); 
     
     /****************************************************************************************************/
     // Boucle Principale
