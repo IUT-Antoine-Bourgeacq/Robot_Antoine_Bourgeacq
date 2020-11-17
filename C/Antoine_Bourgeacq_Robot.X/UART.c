@@ -2,7 +2,7 @@
 #include "UART.h"
 #include "ChipConfig.h"
 
-#define DAUDRATE 115200
+#define BAUDRATE 115200
 #define BRGVAL ((FCY/BAUDRATE)/4)-1
 
 void InitUART(void) {
@@ -12,7 +12,7 @@ void InitUART(void) {
     U1MODEbits.BRGH = 1; // Low Speed mode
     U1BRG = BRGVAL; // BAUD Rate Setting
 
-    U1STAbits.UTXISEL0 = 0; // Interrupt after one Tx character is transmitted
+    U1STAbits.UTXISEL0 = 1; // Interrupt after one Tx character is transmitted
     U1STAbits.UTXISEL1 = 0;
     IFS0bits.U1TXIF = 0; // clear TX interrupt flag
     IEC0bits.U1TXIE = 0; // Disable UART Tx interrupt
@@ -23,12 +23,12 @@ void InitUART(void) {
 
     U1MODEbits.UARTEN = 1; // Enable UART
     U1STAbits.UTXEN = 1; // Enable UART Tx  
-}
+}                                                              
 
 void SendMessageDirect(unsigned char* message,int length){
     unsigned char i = 0;
     for (i=0; i<length; i++){
         while (U1STAbits.UTXBF); // wait while Tx buffer full
-        U1TXREG = ?(message)++; // Transmit one character
+        U1TXREG = *(message)++; // Transmit one character
     }
 }

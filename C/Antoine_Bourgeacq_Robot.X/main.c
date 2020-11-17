@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <xc.h>
+#include <libpic30.h>
 #include "ChipConfig.h"
 #include "ADC.h"
 #include "IO.h"
@@ -10,6 +11,7 @@
 #include "Robot.h"
 #include "main.h"
 #include "UART.h"
+
 
 unsigned char stateRobot;
 
@@ -31,7 +33,10 @@ int main(void) {
     // Boucle Principale
     /****************************************************************************************************/
     while (1) {
-
+        
+        SendMessage((unsigned char*) "Bonjour", 7);
+        __delay32(40000000);
+        
         if (ADCIsConversionFinished() == 1) {
             ADCClearConversionFinishedFlag();
             unsigned int * result = ADCGetResult();

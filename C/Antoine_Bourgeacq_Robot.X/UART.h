@@ -9,7 +9,7 @@
 #define	UART_H
 
 void InitUART(void);
-void SendMessageDirect(unsigned char, int);
+void SendMessageDirect(unsigned char*, int);
 
 #ifdef	__cplusplus
 extern "C" {
