@@ -17,7 +17,7 @@ void InitUART(void) {
     IFS0bits.U1TXIF = 0; // clear TX interrupt flag
     IEC0bits.U1TXIE = 0; // Disable UART Tx interrupt
 
-    U1STAbits.URXISEL = 0; // Interrupt after one RX character is received;
+    U1STAbits.URXISEL = 1; // Interrupt after one RX character is received;
     IFS0bits.U1RXIF = 0; // clear RX interrupt flag
     IEC0bits.U1RXIE = 0; // Disable UART Rx interrupt
 

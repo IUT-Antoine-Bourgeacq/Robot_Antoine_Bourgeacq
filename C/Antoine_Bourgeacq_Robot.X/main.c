@@ -11,6 +11,8 @@
 #include "Robot.h"
 #include "main.h"
 #include "UART.h"
+#include "CB_RX1.h"
+#include "CB_TX1.h"
 
 
 unsigned char stateRobot;

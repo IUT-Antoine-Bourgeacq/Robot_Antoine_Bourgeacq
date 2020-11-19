@@ -22,11 +22,16 @@ void SendMessage(unsigned char* message, int length) {
 }
 
 void CB_TX1_Add(unsigned char value) {
-    ?
+    cbTx1Buffer[cbTx1Head++] = value;
+    if (cbTx1Head == CBTX1_BUFFER_SIZE)
+        cbTx1Head = 0;
 }
 
 unsigned char CB_TX1_Get(void) {
-    ?
+    unsigned char ret = cbTx1Buffer[cbTx1Tail++];
+    if (cbTx1Tail == CBTX1_BUFFER_SIZE)
+        cbTx1Tail = 0;
+    return ret;
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void) {
@@ -44,11 +49,14 @@ void SendOne() {
 }
 
 unsigned char CB_TX1_IsTranmitting(void) {
-    ?
+    return isTransmitting;
 }
 
 int CB_TX1_RemainingSize(void) {
     int rSize;
-    ..
+    if (cbTx1Tail < cbTx1Head)
+        rSize = CBTX1_BUFFER_SIZE - (cbTx1Tail - cbTx1Head);
+    else
+        rSize = CBTX1_BUFFER_SIZE - (cbTx1Head - cbTx1Tail);
     return rSize;
 }
