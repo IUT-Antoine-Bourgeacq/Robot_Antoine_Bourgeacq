@@ -83,7 +83,7 @@ void __attribute__((interrupt, no_auto_psv)) _T4Interrupt(void) {
     
     ADC1StartConversionSequence();
     OperatingSystemLoop();
-    PWMUpdateSpeed();
+    //PWMUpdateSpeed();
 }
 
 // Set Frequence Timer 1

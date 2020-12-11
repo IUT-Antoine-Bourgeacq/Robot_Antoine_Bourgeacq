@@ -25,10 +25,10 @@ int main(void) {
     InitIO();
     InitPWM();
     InitADC1();
-    InitTimer1();
-    InitTimer4();
+    //InitTimer1();
+    //InitTimer4();
     InitOscillator();
-    InitTimer23();
+    //InitTimer23();
     InitUART(); 
     
     /****************************************************************************************************/
@@ -36,7 +36,11 @@ int main(void) {
     /****************************************************************************************************/
     while (1) {
         
-        int i;
+        SendMessageDirect("Bonjour", 7);
+        __delay32(40000000);
+        
+        
+        /*int i;
         for(i=0; i< CB_RX1_GetDataSize(); i++)
         {
             unsigned char c = CB_RX1_Get();
@@ -80,7 +84,7 @@ int main(void) {
             else {
                 LED_ORANGE = 0;
             }
-        }
+        }*/
     }
 }
 
