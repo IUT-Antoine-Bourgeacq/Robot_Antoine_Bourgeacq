@@ -15,11 +15,11 @@ void InitUART(void) {
     U1STAbits.UTXISEL0 = 1; // Interrupt after one Tx character is transmitted ACTIVER
     U1STAbits.UTXISEL1 = 0;
     IFS0bits.U1TXIF = 0; // clear TX interrupt flag
-    IEC0bits.U1TXIE = 0; // Disable UART Tx interrupt
+    IEC0bits.U1TXIE = 1; // Enable UART Tx interrupt
 
     U1STAbits.URXISEL = 1; // Interrupt after one RX character is received; ACTIVER
     IFS0bits.U1RXIF = 0; // clear RX interrupt flag
-    IEC0bits.U1RXIE = 0; // Disable UART Rx interrupt
+    IEC0bits.U1RXIE = 1; // Enable UART Rx interrupt
 
     U1MODEbits.UARTEN = 1; // Enable UART
     U1STAbits.UTXEN = 1; // Enable UART Tx  

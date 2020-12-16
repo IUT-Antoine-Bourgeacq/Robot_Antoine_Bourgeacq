@@ -35,8 +35,13 @@ int main(void) {
     // Boucle Principale
     /****************************************************************************************************/
     while (1) {
-        
-        SendMessageDirect("Bonjour", 7);
+        int i;
+        for(i=0; i<CB_RX1_GetDataSize(); i++)
+        {
+            unsigned char c = CB_RX1_Get();
+            SendMessage(&c,1);
+        }
+        //SendMessageDirect("Bonjour", 7);
         __delay32(40000000);
         
         

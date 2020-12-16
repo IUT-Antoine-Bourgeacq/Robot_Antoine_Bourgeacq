@@ -12,7 +12,7 @@ void SendMessage(unsigned char*, int);
 void SendOne(void);
 
 int CB_RX1_RemainingSize(void);
-unsigned char CB_RX1_IsTransmitting(void);
+//unsigned char CB_RX1_IsTransmitting(void);
 
 unsigned char CB_RX1_Get(void);
 void CB_RX1_Add(unsigned char);

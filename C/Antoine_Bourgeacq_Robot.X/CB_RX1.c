@@ -63,3 +63,4 @@ int CB_RX1_GetRemainingSize(void) {
 int CB_RX1_GetDataSize(void) {
     return CBRX1_BUFFER_SIZE - CB_RX1_GetRemainingSize();
 }
+
